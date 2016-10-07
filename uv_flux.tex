@@ -46,7 +46,7 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 \def\tablenotemark#1{\rlap{$^{\rm #1}$}}
 %%% This template shows off all of the options
 %%% If you're not using RCS, remove the rcs option.
-\usepackage[prerule]{memox_ppp}
+\usepackage[prerule]{memox}
 
 %%% grab the CXC letterhead, specifying the CfA address
 \usepackage[addr=cfa]{cxc_letterhead}
@@ -134,7 +134,7 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 
 %%% Generate the memo header.  If the \Date macro isn't specified,
 
-%\memo{\today}
+\memo{\today}
 
 %%% If you wish to redefine the page headers and footers, do so here.
 \section{Introduction}
@@ -182,7 +182,7 @@ conditions are satisfied is thus:
 \nonumber &=& 2.73~{\rm hr}
 \end{eqnarray}
 
-Figure \ref{fig:time_accum} shows the accumulation of this time over the duration of the mission. 
+Figure \ref{fig:time_accum} shows the accumulation of this time over the duration of the mission.
 
 We assume that the UV photons are reflected from the HRMA onto the focal plane with 100\% efficiency,
 so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delta{S}$ of the ACIS focal plane is
