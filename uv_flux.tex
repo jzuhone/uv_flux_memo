@@ -140,6 +140,11 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 \section{Introduction}
 %%% The body of the memo.  No text should appear above here.
 
+It was noticed early in the mission that the low-energy sensitivity of ACIS is
+decreasing with time. It has been determined that the loss of effective area is
+due to a contamination layer building up on the surface of the Optical Blocking
+Filters (OBFs) facing the spacecraft interior. The contamination layer continues to accumulate even after 16 years on orbit. The accumulation rate, the chemical composition, and the spatial distribution of the contaminant have all varied with time over the mission. In this paper, we discuss our current understanding of the time-variable accumulation rate, chemical composition and spatial distribution.
+
 \section{Calculations}
 
 It should be noted at the outset that the goal is to calculate a ``worst-case'' UV fluence,
@@ -186,12 +191,30 @@ Figure \ref{fig:time_accum} shows the accumulation of this time over the duratio
 
 We assume that the UV photons are reflected from the HRMA onto the focal plane with 100\% efficiency,
 so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delta{S}$ of the ACIS focal plane is
-0.0205"/$\mu$m. The fluence of photons which can break H-C and C=C bonds are then, respectively:
+0.0205"/$\mu$m. The accumulated fluences of photons which can break H-C and C=C bonds are then, respectively:
 
 \begin{eqnarray}
 H_{\rm H-C} &=& I_{\rm H-C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 4.06 \times 10^{12}~{\rm photons~cm^{-2}} \\
 H_{\rm C=C} &=& I_{\rm C=C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{15}~{\rm photons~cm^{-2}}
 \end{eqnarray}
+
+where the number of photons which can break C=C bonds is much higher due to the steep increase in intensity of these
+photons at longer wavelengths (Figure \ref{fig:bright_earth_intensity}).
+
+We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. Since we
+do not know the molecular composition of the contaminant, it will be necessary to make some assumptions. We will assume
+that the contaminant is composed primarily of H and C atoms, with some amounts of O and F, and that the primary molecular form of the contaminant is that of a hydrocarbon with $N_{\rm C}$ C atoms per molecule. This implies that the number of bonds per molecule are:
+
+\begin{eqnarray}
+N_{\rm C=C} &\approx& N_{\rm C} - 1 \\
+N_{\rm H-C} &\approx& 2N_{\rm C} + 2
+\end{eqnarray}
+
+Assuming 100\% efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), we can estimate
+the number of broken bonds per square area as:
+
+
+Since we are concerned with breaking H-C and C=C bonds,
 
 \subsection{Flux from Stars}
 
