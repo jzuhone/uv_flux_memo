@@ -1,0 +1,202 @@
+\documentclass[11pt]{article}
+
+
+\newcommand{\putdraft}{\special {!userdict begin /bop-hook{gsave 200 30
+translate 65 rotate /Times-Roman findfont 216 scalefont setfont 0 0
+moveto 0.9 setgray (DRAFT) show grestore}def end}}
+
+\def\quote{\list{}{\rightmargin\leftmargin}\item[]}
+\let\endquote=\endlist
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+%%% use the geometry package to specify the margins.  up the
+%%% headheight a bit to give more room for the headers
+\usepackage[head=12pt]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+%%% the possible options to the memo package are:
+%%%
+%%%  NofM - output pagenumbers as N / M, where M is the last page.
+%%%         This requires two LaTeX runs.  Only works if fancy is specified
+%%%
+%%%  prerule - draw a rule between the memo preamble and the memo body
+%%%
+%%%  fancy - use the fancyhdr package to make nice page headers and footers
+%%%          if you don't like the default, go ahead and override the
+%%%          fancyhdr stuff directly.  The default handles twosided
+%%%          documents.
+%%%
+%%%  rcs - use the rcsinfo package to generate the contents of the Date,
+%%%        Version, and File memo header fields.  This is very useful
+%%%        if you are using the RCS package to manage your text.
+%%%        You will have to put the following text in your file:
+%%%
+%%%             \rcsInfo $Id$
+%%%
+%%%        It will be updated by RCS when you commit your changes.
+%%%        If you don't specify rcs, the above line will cause LaTeX
+%%%        to complain. You will get all three fields with this option.
+%%%        You can override the contents of the fields by specifying
+%%%        them explicitly. To delete them, use \DeleteMemoField, e.g.:
+%%%
+%%%             \DeleteMemoField{File}
+%%%
+\def\tablenotemark#1{\rlap{$^{\rm #1}$}}
+%%% This template shows off all of the options
+%%% If you're not using RCS, remove the rcs option.
+\usepackage[prerule]{memox_ppp}
+
+%%% grab the CXC letterhead, specifying the CfA address
+\usepackage[addr=cfa]{cxc_letterhead}
+%%% and tell the memo package to use it
+\memoletterhead{\CXCletterhead}
+
+\begin{document}
+
+\newcommand{\chandra}{{\em Chandra}~}
+\newcommand{\rosat}{{\em ROSAT}}
+\newcommand{\chase}{{\em ChASeM33}}
+\newcommand{\etal}{{\em et al.}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\bt}{\begin{tabbing}}
+\newcommand{\et}{\end{tabbing}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+%%% First, define the fields in the memo preamble (i.e, To, From, etc.).
+%%% present is \From.
+%%%
+%%%  \Date - there are two possible places for the date to be printed;
+%%%         if this macro is used, a Date: field is output.  If not,
+%%%         the string passed to the \memo macro is placed above the
+%%%         memo preamble.
+%%%
+%%%  \From - the author of the memo.
+%%%
+%%%  \To   - the recipient(s)
+%%%
+%%%  \Subject - the memo subject (the Subject field)
+%%%
+%%%  \RE - the Re field
+%%%
+%%%  \ShortSubj - a short subject to be output in the page header, if the
+%%%               fancy package option was specified.  If this isn't specified,
+%%%               either the Subject or the Re field data will be used.
+%%%
+%%%  \Cc - a carbon copy list
+%%%
+%%%  \File - the name of the file which generated this memo. This is output
+%%%          in a smaller (typewriter) font
+%%%
+%%%  \Version - the version of this memo.  This is output in a smaller font
+%%%
+%%% The macros place their arguments in other macros with the same name,
+%%% but prefixed with the word `memo' (e.g., \memoFrom).  You can use
+%%% these if you choose to redefine the page headers and footers.
+%%%
+%%% If for some reason you've defined a field and you wish to delete
+%%% it, use the \DeleteMemoField macro.
+%%%
+%%%             \DeleteMemoField{File}
+%%%
+%%% It is harmless to delete a field which hasn't had a value assigned
+%%% to it. Assigning an empty value to a field will not delete it.
+%%%
+%%% You can define a field as many times as you'd like.
+
+
+%%% remove this line if you're NOT using the rcs option, otherwise
+%%% you'll get errors
+%\putdraft
+\Subject{ }
+%\RE{The message you last sent me}
+%\ShortSubj{ }
+\From{ }
+\To{ }
+%\Cc{ }
+
+%%% This template uses the RCS information for the Date, Version, and
+%%% File fields.  You can override them individually by explicitly
+%%% defining them.
+
+%\File{ }
+
+%\Version{1.0}
+%\Date{\today}
+
+%%% Generate the memo header.  If the \Date macro isn't specified,
+
+%\memo{\today}
+
+%%% If you wish to redefine the page headers and footers, do so here.
+\section{Introduction}
+%%% The body of the memo.  No text should appear above here.
+
+\section{Calculations}
+
+It should be noted at the outset that the goal is to calculate a ``worst-case'' UV fluence,
+which will necessitate a number of simplifying assumptions that will be detailed throughout this
+memo.
+
+\subsection{Flux from Bright Earth}
+
+Our first source of UV flux that we consider is that which is from the Sun, backscattered
+from the Earth's atmosphere.
+
+Though \chandra does not directly observe the bright Earth, the Earth can be scanned during
+maneuvers. Therefore, in order to determine the total UV fluence reflected from the bright
+arth which impinged upon the OBFs, it is necessary to determine the total time accumulated over
+the lifetime of the mission when the following two conditions are simultaneously satisfied:
+
+\begin{enumerate}
+\item The Earth is in the \chandra field of view
+\item ACIS is in the focal plane
+\end{enumerate}
+
+We assume that condition 1 is satisfied when the angular radius of the Earth is less than the
+angular distance between the Earth and the aimpoint. This was determined by querying
+the \code{Ska} engineering archive for the MSIDs \code{Dist\_SatEarth} and \code{Point\_EarthCentAng},
+corresponding to the distance between the Earth's center and \chandra ($D_E$) and the angle $\phi_E$ between
+the Earth and the aimpoint, respectively. The angular radius of the Earth $\theta_E$ is determined
+via $\theta_E = \tan^{-1} (R_\oplus/D_E)$. We assume that condition 2 is satisfied when the TSC
+position is $\geq$ -25,000. This can be determined using the MSID \code{3TSCPOS} from the \code{Ska}
+archive.
+
+The time resolution of the first two MSIDs in the archive is $\Delta{t} = 5$~min, whereas the resolution
+of \code{3TSCPOS} is 32.8~seconds, so the time resolution of the calculation is limited to 5-minute intervals.
+This likely results in a modest overestimate of the total length of time that the OBFs have been exposed to
+the bright Earth, since the Earth will be entering and exiting the field of view during some of these intervals.
+This is consistent with our ``worst-case'' approach to this problem. The total time $\Delta{T}$ within which our two
+conditions are satisfied is thus:
+
+\begin{eqnarray}
+\Delta{T} &=& \displaystyle\sum_i~\Delta{t_i},~{\rm where}~(\phi_{E,i} \leq \theta_{E,i})~{\rm and}~(\code{3TSCPOS}_i > -25000) \\
+\nonumber &=& 2.73~{\rm hr}
+\end{eqnarray}
+
+Figure \ref{fig:time_accum} shows the accumulation of this time over the duration of the mission. 
+
+We assume that the UV photons are reflected from the HRMA onto the focal plane with 100\% efficiency,
+so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delta{S}$ of the ACIS focal plane is
+0.0205"/$\mu$m. The fluence of photons which can break H-C and C=C bonds are then, respectively:
+
+\begin{eqnarray}
+H_{\rm H-C} &=& I_{\rm H-C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 4.06 \times 10^{12}~{\rm photons~cm^{-2}} \\
+H_{\rm C=C} &=& I_{\rm C=C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{15}~{\rm photons~cm^{-2}}
+\end{eqnarray}
+
+\subsection{Flux from Stars}
+
+\subsection{Flux from Other Planets}
+
+\subsection{Computing the }
+
+\end{document}
