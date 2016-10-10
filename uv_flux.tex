@@ -13,10 +13,12 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 
 %%% use the geometry package to specify the margins.  up the
 %%% headheight a bit to give more room for the headers
+\usepackage{hyperref}
 \usepackage[head=12pt]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{upgreek}
+
 %%% the possible options to the memo package are:
 %%%
 %%%  NofM - output pagenumbers as N / M, where M is the last page.
@@ -139,9 +141,13 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 
 \section{Abstract}
 
-This memo is presented to support the conclusion that the OBFs have been exposed
-to insufficient UV flux over the duration of the mission to significantly polymerize
-the contaminant.
+A contamination layer has built up on the ACIS Optical Blocking Filters over the
+lifetime of the \chandra~mission. A bakeout of the ACIS instrument could potentially
+drive the contaminant off the filters, but this will be extremely difficult if the
+contaminant has been significantly polymerized by exposure to ultraviolet light.
+This memo is presented to support the conclusion that the filters have been exposed
+to insufficient ultraviolet light over the duration of the mission to significantly
+polymerize the contaminant.
 
 %%% If you wish to redefine the page headers and footers, do so here.
 \section{Introduction}
@@ -179,28 +185,42 @@ of a potential bakeout of the ACIS OBFs.
 
 \section{Estimation of the Effects of UV Flux}
 
-Our goal is to calculate a ``worst-case'' UV fluence, which will necessitate a
-number of simplifying assumptions that will be detailed throughout this memo.
+In this section, we will present a series of calculations of the estimated UV fluence
+``observed'' by ACIS from various sources. Our goal is to calculate a ``worst-case'' UV
+fluence, which will necessitate a number of simplifying assumptions that will be detailed
+throughout this memo.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{bright_earth_intensity.eps}
+\caption{Specific intensity of solar UV photons backscattered from the bright earth. Dashed
+vertical lines show the wavelengths of photon energies that can break H-C and C-C bonds.
+Figure reproduced from the HST memo.\label{fig:bright_earth_intensity}}
+\end{center}
+\end{figure}
 
 \subsection{Assumptions About the Nature of the Contaminant}
 
 Since we do not know the molecular composition of the contaminant, it will be necessary to make
 some assumptions. It is known that the contaminant is composed primarily of H and C atoms,
-with some amounts of O and F. We will assume that the primary molecular form of the contaminant
-is akin to a hydrocarbon with $N_{\rm C}$ C atoms per molecule.
+with some amounts of O and F. We will assume that the contaminant is a saturated hydrocarbon,
+primarily composed of covalently bonded H and C atoms, with $N_{\rm C}$ C atoms per molecule.
+
+This indicates that H-C or C-C bonds must be broken in order to polymerize the contaminant. The
+energies required to break these bonds are $E_{\rm H-C}$ = 99~kcal/mol and $E_{\rm C-C}$ =
+83~kcal/mol.\footnote{\url{http://www.cem.msu.edu/~reusch/OrgPage/bndenrgy.htm}} These energies
+correspond to photon wavelengths of $\lambda_{\rm H-C}$ = 2888~${\rm \AA}$ and $\lambda_{\rm C-C}$
+= 3445~${\rm \AA}$.
 
 \subsection{UV Flux from the Bright Earth}
 
 Our first source of UV flux that we consider is that which is from the Sun, backscattered
-from the Earth's atmosphere.
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{bright_earth_intensity.eps}
-\caption{Specific intensity of solar UV photons backscattered from the bright earth. Dashed
-vertical lines show the wavelengths of photon energies that can break H-C and C=C bonds.\label{fig:bright_earth_intensity}}
-\end{center}
-\end{figure}
+from the Earth's atmosphere. Figure \ref{fig:bright_earth_intensity} shows the specific
+intensity of these UV photons in the $\sim$1800-3800~${\rm \AA}$ wavelength range. There
+are steep drops in intensity around 1900~${\rm \AA}$ and 3000~${\rm \AA}$. By integrating
+over wavelength, we determine that the intensity of photons which can break the H-C and C-C
+bonds are $I_{\rm H-C}$ = 9.23~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$ and $I_{\rm C-C}$ =
+7132.04~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$.
 
 Though \chandra~does not directly observe the bright Earth, the Earth can be scanned during
 maneuvers. Therefore, in order to determine the total UV fluence reflected from the bright
@@ -237,36 +257,33 @@ Figure \ref{fig:time_accum} shows the accumulation of this time over the duratio
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{time_accum.eps}
+\includegraphics[width=0.7\textwidth]{time_accum.eps}
 \caption{Accumulation of time with Earth in the FOV and ACIS in the focal plane over the duration of the mission.\label{fig:time_accum}}
 \end{center}
 \end{figure}
 
 We assume that the UV photons are reflected from the HRMA onto the focal plane with 100\% efficiency,
 so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delta{S}$ of the ACIS focal plane is
-0.0205"/$\mu$m. The accumulated fluences of photons which can break H-C and C=C bonds are then, respectively:
+0.0205"/$\mu$m. The accumulated fluences of photons which can break H-C and C-C bonds are then, respectively:
 
 \begin{eqnarray}
 H_{\rm H-C} &=& I_{\rm H-C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 4.06 \times 10^{12}~{\rm photons~cm^{-2}} \\
-H_{\rm C=C} &=& I_{\rm C=C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{15}~{\rm photons~cm^{-2}}\label{eqn:fluence}
+H_{\rm C-C} &=& I_{\rm C-C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{15}~{\rm photons~cm^{-2}}\label{eqn:fluence}
 \end{eqnarray}
 
 \noindent
-where the number of photons which can break C=C bonds is much higher due to the steep increase in intensity of these photons at longer wavelengths (Figure \ref{fig:bright_earth_intensity}). Since any photon than can break a C=C bond can also break a H-C bond, we may estimate the total fluence of bond-breaking photons as simply $H = H_{\rm C=C}$.
+where the number of photons which can break C-C bonds is much higher due to the steep increase in intensity of these photons at wavelengths longer than $\sim$3000~${\rm \AA}$ (Figure \ref{fig:bright_earth_intensity}). Since any photon than can break a C-C bond can also break a H-C bond, we may estimate the total fluence of bond-breaking photons as simply $H = H_{\rm C-C}$.
 
-We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. It will be
-convenient to express this in terms of the surface mass density of C, since this is directly measureable from calibration
-studies. Assuming 100\% efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), and that the number
-of photons required to polymerize $N$ molecules is simply $N-1 \approx N$ (for large $N$), the surface mass density of
-$C$ that is in the form of polymerized material is then given by:
+We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. It
+will be convenient to express this in terms of the surface mass density of C, since this is directly
+measureable from calibration studies. Assuming 100\% efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), and that the number of photons required to polymerize $N$ molecules is simply $N-1 \approx N$ (for large $N$), the surface mass density of $C$ that is in the form of polymerized material is then given by:
 
 \begin{equation}\label{eqn:pred_poly}
-\sigma_{\rm C} = HN_{\rm C}m_{\rm C}/N_A = N_{\rm C} = 0.067N_{\rm C}~\upmu{\rm g~cm}^{-2}
+\sigma_{\rm C} = HN_{\rm C}m_{\rm C}/N_A = 0.067N_{\rm C}~\upmu{\rm g~cm}^{-2}
 \end{equation}
 
 \noindent
-for $N_{\rm C} = 17$, $\sigma_{\rm C} = 1.14$~$\upmu$g~cm$^{-2}$, which, as we will note below, is a small fraction of the mass density of the
-contaminant present on the OBFs.
+for $N_{\rm C} = 17$, $\sigma_{\rm C} = 1.14$~$\upmu$g~cm$^{-2}$, which, as we will note below, is a small fraction of the mass density of the contaminant present on the OBFs.
 
 \subsection{UV Flux from Stars}
 
@@ -287,11 +304,13 @@ than the actual surface mass density of the contaminant.
 
 \section{Summary}
 
+We have presented a series of calculations of the estimated UV fluence which has impinged on the ACIS OBFs
+over the lifetime of the mission. We have determined that the amount of UV fluence which has
+
 The following considerations must be bore in mind:
 
 \begin{itemize}
-\item Throughout this memo, we assumed that UV photons with the requisite energy break bonds and polymerize contaminant with 100\% efficiency, which
-is not likely to be the case.
+\item Throughout this memo, we assumed that UV photons with the requisite energy break bonds and polymerize contaminant with 100\% efficiency, which is not likely to be the case.
 \end{itemize}
 
 \end{document}
