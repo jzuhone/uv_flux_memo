@@ -16,6 +16,7 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 \usepackage[head=12pt]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{upgreek}
 %%% the possible options to the memo package are:
 %%%
 %%%  NofM - output pagenumbers as N / M, where M is the last page.
@@ -55,7 +56,7 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 
 \begin{document}
 
-\newcommand{\chandra}{{\em Chandra}~}
+\newcommand{\chandra}{{\em Chandra}}
 \newcommand{\rosat}{{\em ROSAT}}
 \newcommand{\chase}{{\em ChASeM33}}
 \newcommand{\etal}{{\em et al.}}
@@ -116,11 +117,11 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 %%% remove this line if you're NOT using the rcs option, otherwise
 %%% you'll get errors
 %\putdraft
-\Subject{ }
+\Subject{Estimation of Potential Polymerization of ACIS OBF Contaminant}
 %\RE{The message you last sent me}
 %\ShortSubj{ }
-\From{ }
-\To{ }
+\From{John A. ZuHone}
+\To{Chandra Operations Team}
 %\Cc{ }
 
 %%% This template uses the RCS information for the Date, Version, and
@@ -130,46 +131,67 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 %\File{ }
 
 %\Version{1.0}
-%\Date{\today}
+\Date{\today}
 
 %%% Generate the memo header.  If the \Date macro isn't specified,
 
-\memo{\today}
+\memo{}
+
+\section{Abstract}
+
+This memo is presented to support the conclusion that the OBFs have been exposed
+to insufficient UV flux over the duration of the mission to significantly polymerize
+the contaminant.
 
 %%% If you wish to redefine the page headers and footers, do so here.
 \section{Introduction}
 %%% The body of the memo.  No text should appear above here.
 
+\subsection{Contaminantion on the Optical Blocking Filters}
+
 It was noticed early in the mission that the low-energy sensitivity of ACIS is
 decreasing with time. It has been determined that the loss of effective area is
 due to a contamination layer building up on the surface of the Optical Blocking
-Filters (OBFs) facing the spacecraft interior. The contamination layer continues to accumulate even after 16 years on orbit. The accumulation rate, the chemical composition, and the spatial distribution of the contaminant have all varied with time over the mission. In this paper, we discuss our current understanding of the time-variable accumulation rate, chemical composition and spatial distribution.
+Filters (OBFs) facing the spacecraft interior. The contamination layer continues
+to accumulate even after 16 years on orbit. The accumulation rate, the chemical
+composition, and the spatial distribution of the contaminant have all varied with
+time over the mission. In this paper, we discuss our current understanding of the
+time-variable accumulation rate, chemical composition and spatial distribution.
 
-\section{Calculations}
+\subsection{Possible Polymerization of the Contaminant}
+
+\section{Estimation of the UV Flux}
 
 It should be noted at the outset that the goal is to calculate a ``worst-case'' UV fluence,
 which will necessitate a number of simplifying assumptions that will be detailed throughout this
 memo.
 
-\subsection{Flux from Bright Earth}
+\subsection{Assumptions About the Nature of the Contaminant}
+
+Since we do not know the molecular composition of the contaminant, it will be necessary to make
+some assumptions. It is known that the contaminant is composed primarily of H and C atoms,
+with some amounts of O and F. We will assume that the primary molecular form of the contaminant
+is akin to a hydrocarbon with $N_{\rm C}$ C atoms per molecule.
+
+\subsection{UV Flux from Bright Earth}
 
 Our first source of UV flux that we consider is that which is from the Sun, backscattered
 from the Earth's atmosphere.
 
-Though \chandra does not directly observe the bright Earth, the Earth can be scanned during
+Though \chandra~does not directly observe the bright Earth, the Earth can be scanned during
 maneuvers. Therefore, in order to determine the total UV fluence reflected from the bright
 arth which impinged upon the OBFs, it is necessary to determine the total time accumulated over
 the lifetime of the mission when the following two conditions are simultaneously satisfied:
 
 \begin{enumerate}
-\item The Earth is in the \chandra field of view
+\item The Earth is in the HRMA field of view
 \item ACIS is in the focal plane
 \end{enumerate}
 
 We assume that condition 1 is satisfied when the angular radius of the Earth is less than the
 angular distance between the Earth and the aimpoint. This was determined by querying
 the \code{Ska} engineering archive for the MSIDs \code{Dist\_SatEarth} and \code{Point\_EarthCentAng},
-corresponding to the distance between the Earth's center and \chandra ($D_E$) and the angle $\phi_E$ between
+corresponding to the distance between the Earth's center and \chandra~($D_E$) and the angle $\phi_E$ between
 the Earth and the aimpoint, respectively. The angular radius of the Earth $\theta_E$ is determined
 via $\theta_E = \tan^{-1} (R_\oplus/D_E)$. We assume that condition 2 is satisfied when the TSC
 position is $\geq$ -25,000. This can be determined using the MSID \code{3TSCPOS} from the \code{Ska}
@@ -178,16 +200,26 @@ archive.
 The time resolution of the first two MSIDs in the archive is $\Delta{t} = 5$~min, whereas the resolution
 of \code{3TSCPOS} is 32.8~seconds, so the time resolution of the calculation is limited to 5-minute intervals.
 This likely results in a modest overestimate of the total length of time that the OBFs have been exposed to
-the bright Earth, since the Earth will be entering and exiting the field of view during some of these intervals.
-This is consistent with our ``worst-case'' approach to this problem. The total time $\Delta{T}$ within which our two
-conditions are satisfied is thus:
+the bright Earth, since the Earth will be entering and exiting the field of view during some of these intervals,
+and will not be within it during the entire 5 minutes. We do not seek to quantify this overestimate further, since
+we are adopting a ``worst-case'' approach to this problem. The total time $\Delta{T}$ during which the ACIS OBFs are
+exposed to the bright Earth is then calculated by simply summing the time intervals which jointly satisfy these
+conditions:
 
 \begin{eqnarray}
 \Delta{T} &=& \displaystyle\sum_i~\Delta{t_i},~{\rm where}~(\phi_{E,i} \leq \theta_{E,i})~{\rm and}~(\code{3TSCPOS}_i > -25000) \\
 \nonumber &=& 2.73~{\rm hr}
 \end{eqnarray}
 
+\noindent
 Figure \ref{fig:time_accum} shows the accumulation of this time over the duration of the mission.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{time_accum.eps}
+\caption{Accumulation of time with Earth in the FOV and ACIS in the focal plane over the duration of the mission.\label{fig:time_accum}}
+\end{center}
+\end{figure}
 
 We assume that the UV photons are reflected from the HRMA onto the focal plane with 100\% efficiency,
 so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delta{S}$ of the ACIS focal plane is
@@ -195,31 +227,52 @@ so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delt
 
 \begin{eqnarray}
 H_{\rm H-C} &=& I_{\rm H-C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 4.06 \times 10^{12}~{\rm photons~cm^{-2}} \\
-H_{\rm C=C} &=& I_{\rm C=C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{15}~{\rm photons~cm^{-2}}
+H_{\rm C=C} &=& I_{\rm C=C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{15}~{\rm photons~cm^{-2}}\label{eqn:fluence}
 \end{eqnarray}
 
+\noindent
 where the number of photons which can break C=C bonds is much higher due to the steep increase in intensity of these
-photons at longer wavelengths (Figure \ref{fig:bright_earth_intensity}).
+photons at longer wavelengths (Figure \ref{fig:bright_earth_intensity}). Since any photon than can break a C=C bond
+can also break a H-C bond, we may estimate the total fluence of bond-breaking photons as simply $H = H_{\rm C=C}$.
 
-We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. Since we
-do not know the molecular composition of the contaminant, it will be necessary to make some assumptions. We will assume
-that the contaminant is composed primarily of H and C atoms, with some amounts of O and F, and that the primary molecular form of the contaminant is that of a hydrocarbon with $N_{\rm C}$ C atoms per molecule. This implies that the number of bonds per molecule are:
+We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. It will be
+convenient to express this in terms of the surface mass density of C, since this is directly measureable from calibration
+studies. Assuming 100\% efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), and that the number
+of photons required to polymerize $N$ molecules is simply $N-1 \approx N$ (for large $N$), the surface mass density of
+$C$ that is in the form of polymerized material is then given by:
 
-\begin{eqnarray}
-N_{\rm C=C} &\approx& N_{\rm C} - 1 \\
-N_{\rm H-C} &\approx& 2N_{\rm C} + 2
-\end{eqnarray}
+\begin{equation}\label{eqn:pred_poly}
+\sigma_{\rm C} = HN_{\rm C}m_{\rm C}/N_A = N_{\rm C} = 0.067N_{\rm C}~\upmu{\rm g~cm}^{-2}
+\end{equation}
 
-Assuming 100\% efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), we can estimate
-the number of broken bonds per square area as:
+\noindent
+for $N_{\rm C} = 17$, $\sigma_{\rm C} = 1.14$~$\upmu$g~cm$^{-2}$, which, as we will note below, is a small fraction of the mass density of the
+contaminant present on the OBFs.
 
+\subsection{UV Flux from Stars}
 
-Since we are concerned with breaking H-C and C=C bonds,
+The next source of UV flux we will consider is that from bright stars which have been observed by \chandra. To determine which stars to
 
-\subsection{Flux from Stars}
+The list of stars which we examined and their UV fluxes are given in Table \ref{tab:star_fluxes}.
 
-\subsection{Flux from Other Planets}
+In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV flux is spread out over
+an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of 32$\times$32 pixels, or 15.74 square arcseconds.
 
-\subsection{Computing the }
+Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total fluence of
+$H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the surface mass density of C corresponding
+to the amount of polymerized contaminant, assuming 100\% efficiency. Using Equation \ref{eqn:pred_poly}, we find
+$\sigma_{\rm C} = 3.10$~$\upmu$g~cm$^{-2}$, slightly higher than the predicted amount resulting from the bright Earth, but still far smaller
+than the actual surface mass density of the contaminant.
+
+\subsection{UV Flux from Solar System Objects}
+
+\section{Summary}
+
+The following considerations must be bore in mind:
+
+\begin{itemize}
+\item Throughout this memo, we assumed that UV photons with the requisite energy break bonds and polymerize contaminant with 100\% efficiency, which
+is not likely to be the case.
+\end{itemize}
 
 \end{document}
