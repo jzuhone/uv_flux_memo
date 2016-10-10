@@ -147,24 +147,40 @@ the contaminant.
 \section{Introduction}
 %%% The body of the memo.  No text should appear above here.
 
-\subsection{Contaminantion on the Optical Blocking Filters}
-
 It was noticed early in the mission that the low-energy sensitivity of ACIS is
 decreasing with time. It has been determined that the loss of effective area is
 due to a contamination layer building up on the surface of the Optical Blocking
 Filters (OBFs) facing the spacecraft interior. The contamination layer continues
 to accumulate even after 16 years on orbit. The accumulation rate, the chemical
 composition, and the spatial distribution of the contaminant have all varied with
-time over the mission. In this paper, we discuss our current understanding of the
-time-variable accumulation rate, chemical composition and spatial distribution.
+time over the mission.
 
-\subsection{Possible Polymerization of the Contaminant}
+In 2004, the CXO project considered a ``bakeout'' of the ACIS instrument to remove
+the contaminant, but it was decided it was not worth the risk, and shortly thereafter
+the accumulation rate of the contaminant decreased. However, since 2012, the rate of
+accumulation of the contaminant has been increasing, raising again the need to consider
+a possible bakeout.
 
-\section{Estimation of the UV Flux}
+One factor which would determine the likelihood of a successful bakeout is the volatility
+of the contaminant, which is unknown since we do not know its molecular structure. If the
+volatility of the contaminant is low, it will be much more difficult to bake it off. One
+extreme possibility for a low volatility is if the contaminant is significantly polymerized.
+After the first Hubble Space Telescope (HST) servicing mission in 1999, a layer of polymerized
+contaminant was discovered on the pick-off mirror. It was subsequently determined that
+the polymerization of the material occurred due to ultraviolet (UV) photons breaking molecular
+bonds. The primary source of these UV photons was from the Sun, reflected from the bright Earth.
 
-It should be noted at the outset that the goal is to calculate a ``worst-case'' UV fluence,
-which will necessitate a number of simplifying assumptions that will be detailed throughout this
-memo.
+This implies that the contaminant that has built up on the OBFs may have been similarly
+polymerized by UV photons. In this memo, we perform an analysis of the various likely
+sources of UV flux which have impinged on the OBFs over the lifetime of the mission,
+to determine there has been a fluence of UV photons with sufficient energy to polymerize
+a significant amount of the contaminant, which could significantly degrade the efficiency
+of a potential bakeout of the ACIS OBFs.
+
+\section{Estimation of the Effects of UV Flux}
+
+Our goal is to calculate a ``worst-case'' UV fluence, which will necessitate a
+number of simplifying assumptions that will be detailed throughout this memo.
 
 \subsection{Assumptions About the Nature of the Contaminant}
 
@@ -173,10 +189,18 @@ some assumptions. It is known that the contaminant is composed primarily of H an
 with some amounts of O and F. We will assume that the primary molecular form of the contaminant
 is akin to a hydrocarbon with $N_{\rm C}$ C atoms per molecule.
 
-\subsection{UV Flux from Bright Earth}
+\subsection{UV Flux from the Bright Earth}
 
 Our first source of UV flux that we consider is that which is from the Sun, backscattered
 from the Earth's atmosphere.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{bright_earth_intensity.eps}
+\caption{Specific intensity of solar UV photons backscattered from the bright earth. Dashed
+vertical lines show the wavelengths of photon energies that can break H-C and C=C bonds.\label{fig:bright_earth_intensity}}
+\end{center}
+\end{figure}
 
 Though \chandra~does not directly observe the bright Earth, the Earth can be scanned during
 maneuvers. Therefore, in order to determine the total UV fluence reflected from the bright
@@ -201,10 +225,7 @@ The time resolution of the first two MSIDs in the archive is $\Delta{t} = 5$~min
 of \code{3TSCPOS} is 32.8~seconds, so the time resolution of the calculation is limited to 5-minute intervals.
 This likely results in a modest overestimate of the total length of time that the OBFs have been exposed to
 the bright Earth, since the Earth will be entering and exiting the field of view during some of these intervals,
-and will not be within it during the entire 5 minutes. We do not seek to quantify this overestimate further, since
-we are adopting a ``worst-case'' approach to this problem. The total time $\Delta{T}$ during which the ACIS OBFs are
-exposed to the bright Earth is then calculated by simply summing the time intervals which jointly satisfy these
-conditions:
+and will not be within it during the entire 5 minutes. We do not seek to quantify this overestimate further, since we are adopting a ``worst-case'' approach to this problem. The total time $\Delta{T}$ during which the ACIS OBFs are exposed to the bright Earth is then calculated by simply summing the time intervals which jointly satisfy these conditions:
 
 \begin{eqnarray}
 \Delta{T} &=& \displaystyle\sum_i~\Delta{t_i},~{\rm where}~(\phi_{E,i} \leq \theta_{E,i})~{\rm and}~(\code{3TSCPOS}_i > -25000) \\
@@ -231,9 +252,7 @@ H_{\rm C=C} &=& I_{\rm C=C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{1
 \end{eqnarray}
 
 \noindent
-where the number of photons which can break C=C bonds is much higher due to the steep increase in intensity of these
-photons at longer wavelengths (Figure \ref{fig:bright_earth_intensity}). Since any photon than can break a C=C bond
-can also break a H-C bond, we may estimate the total fluence of bond-breaking photons as simply $H = H_{\rm C=C}$.
+where the number of photons which can break C=C bonds is much higher due to the steep increase in intensity of these photons at longer wavelengths (Figure \ref{fig:bright_earth_intensity}). Since any photon than can break a C=C bond can also break a H-C bond, we may estimate the total fluence of bond-breaking photons as simply $H = H_{\rm C=C}$.
 
 We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. It will be
 convenient to express this in terms of the surface mass density of C, since this is directly measureable from calibration
