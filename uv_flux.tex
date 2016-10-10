@@ -165,7 +165,8 @@ In 2004, the CXO project considered a ``bakeout'' of the ACIS instrument to remo
 the contaminant, but it was decided it was not worth the risk, and shortly thereafter
 the accumulation rate of the contaminant decreased. However, since 2012, the rate of
 accumulation of the contaminant has been increasing, raising again the need to consider
-a possible bakeout.
+a possible bakeout. Figure \ref{fig:contam_buildup} shows the increase in surface mass
+density of the contaminant as a function of time over the life of the mission so far.
 
 One factor which would determine the likelihood of a successful bakeout is the volatility
 of the contaminant, which is unknown since we do not know its molecular structure. If the
@@ -283,34 +284,33 @@ measureable from calibration studies. Assuming 100\% efficiency (e.g., that each
 \end{equation}
 
 \noindent
-for $N_{\rm C} = 17$, $\sigma_{\rm C} = 1.14$~$\upmu$g~cm$^{-2}$, which, as we will note below, is a small fraction of the mass density of the contaminant present on the OBFs.
+for $N_{\rm C} = 17$, $\sigma_{\rm C} = 1.14$~$\upmu$g~cm$^{-2}$, which is a small fraction of the mass density
+of the contaminant present on the OBFs (Figure \ref{fig:contam_buildup}).
 
 \subsection{UV Flux from Stars}
 
-The next source of UV flux we will consider is that from bright stars which have been observed by \chandra. To determine which stars to
+The next source of UV flux we will consider is that from bright stars. We first examined O stars which have tabulated fluxes in the International Ultraviolet Explorer (IUE) data archive\footnote{\url{https://archive.stsci.edu/iue/}} with apparent magnitudes of 6 or less which have also been observed by \chandra. We also chose to examine the UV flux from other stars which were observed by \chandra~by filtering on the ``Stars and WD'' Science Category of the \chandra~Data Archive, and which also have tabulated spectra in the IUE archive. In both cases, we only examined sources which fell witin 1' of the aimpoint for that observation. The list of stars that were examined, their UV fluxes, and the \chandra~exposure times are given in Table \ref{tab:star_fluxes}. The most significant UV fluences in this sample are from the stars of the Trapezium, which has been observed by \chandra~for $\sim$1~Ms.
 
-The list of stars which we examined and their UV fluxes are given in Table \ref{tab:star_fluxes}.
+\input{star_fluxes.tex}
 
-In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV flux is spread out over
-an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of 32$\times$32 pixels, or 15.74 square arcseconds.
+In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV flux is spread out over an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of 32$\times$32 pixels, or 15.74 square arcseconds. For each source, we use the flux of UV shortward of 3445~${\rm \AA}$ (the energy required to break C-C bonds), down to $\sim$1150~${\rm \AA}$, the lower-wavelength limit of IUE.
 
-Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total fluence of
-$H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the surface mass density of C corresponding
-to the amount of polymerized contaminant, assuming 100\% efficiency. Using Equation \ref{eqn:pred_poly}, we find
-$\sigma_{\rm C} = 3.10$~$\upmu$g~cm$^{-2}$, slightly higher than the predicted amount resulting from the bright Earth, but still far smaller
-than the actual surface mass density of the contaminant.
+Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total fluence of $H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the surface mass density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using Equation \ref{eqn:pred_poly}, we find $\sigma_{\rm C} = 3.10$~$\upmu$g~cm$^{-2}$, slightly higher than the predicted amount resulting from the bright Earth, but still far smaller than the actual surface mass density of the contaminant.
 
 \subsection{UV Flux from Solar System Objects}
 
 \section{Summary}
 
 We have presented a series of calculations of the estimated UV fluence which has impinged on the ACIS OBFs
-over the lifetime of the mission. We have determined that the amount of UV fluence which has
-
-The following considerations must be bore in mind:
+over the lifetime of the mission. We have determined that there has not been a sufficient amount of UV fluence
+to polymerize a significant amount of the contaminant. The following limitations of our study must be bore in mind:
 
 \begin{itemize}
-\item Throughout this memo, we assumed that UV photons with the requisite energy break bonds and polymerize contaminant with 100\% efficiency, which is not likely to be the case.
+\item Throughout this memo, we assumed that sufficiently energetic UV photons polymerize contaminant with 100\% efficiency, which is not likely to be the case.
+\item We have not considered other sources of UV flux, such as the cosmic UV background or that of diffuse sources which have been observed by \chandra.
+\item We have assumed that the HRMA is 100\% reflective to UV photons.
 \end{itemize}
+
+We are confident that relaxing some of these assumptions and adopting more detailed calculations will not change our conclusions, since most of these assumptions result in an {\it overestimate} of the polymerization of the contaminant.
 
 \end{document}
