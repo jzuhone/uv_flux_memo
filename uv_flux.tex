@@ -165,13 +165,16 @@ In 2004, the CXO project considered a ``bakeout'' of the ACIS instrument to remo
 the contaminant, but it was decided it was not worth the risk, and shortly thereafter
 the accumulation rate of the contaminant decreased. However, since 2012, the rate of
 accumulation of the contaminant has been increasing, raising again the need to consider
-a possible bakeout. Figure \ref{fig:surface_mass_density} shows the increase in surface mass
-density of the contaminant as a function of time over the life of the mission so far.
+a possible bakeout. Figure \ref{fig:areal_density} shows the increase in areal density
+of the contaminant as a function of time over the life of the mission so far.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.7\textwidth]{surface_mass_density.eps}
-\caption{Surface mass densities of C and O+F as a function of time. The C density is plotted in red and the O+F density is plotted in blue. The different symbols indicate different locations on the filter. The diamonds are in the center, the triangles $\sim$1/3 from the edge, and the boxes are at the edge. Figure taken from Plucinsky et al. 2016.\label{fig:surface_mass_density}}
+\includegraphics[width=0.9\textwidth]{areal_density.eps}
+\caption{Areal densities of C and O+F as a function of time. The C density is plotted
+in red and the O+F density is plotted in blue. The different symbols indicate different
+locations on the filter. The diamonds are in the center, the triangles $\sim$1/3 from
+the edge, and the boxes are at the edge. Figure adapted from Plucinsky et al. 2016.\label{fig:areal_density}}
 \end{center}
 \end{figure}
 
@@ -182,8 +185,9 @@ extreme possibility for a low volatility case is if the contaminant is significa
 After the first Hubble Space Telescope (HST) servicing mission in 1999, a layer of polymerized
 contaminant was discovered on the pick-off mirror of the WFPC-I camera. It was subsequently
 determined that the polymerization of the material occurred due to ultraviolet (UV) photons
-breaking molecular bonds. The primary source of these UV photons was from the Sun, reflected
-from the bright Earth.
+breaking molecular bonds of contaminant molecules, which subsequently combine to form longer
+polymer molecules. The primary source of these UV photons was from the Sun, reflected from
+the bright Earth (Feinberg et al. 2015).
 
 This implies that the contaminant that has built up on the OBFs may have been similarly
 polymerized by UV photons. In this memo, we perform an analysis of the various likely
@@ -204,7 +208,7 @@ throughout this memo.
 \includegraphics[width=0.7\textwidth]{bright_earth_intensity.eps}
 \caption{Specific intensity of solar UV photons backscattered from the bright earth. Dashed
 vertical lines show the wavelengths of photon energies that can break H-C and C-C bonds.
-Figure reproduced from the HST memo.\label{fig:bright_earth_intensity}}
+Figure reproduced from Feinberg et al. 1995.\label{fig:bright_earth_intensity}}
 \end{center}
 \end{figure}
 
@@ -222,13 +226,16 @@ correspond to photon wavelengths of $\lambda_{\rm H-C}$ = 2888~${\rm \AA}$ and $
 = 3445~${\rm \AA}$.
 
 \subsection{UV Flux from the Bright Earth}
+
 We consider first the solar UV flux, scattered from the Earth's atmosphere. Figure
 \ref{fig:bright_earth_intensity} shows the specific intensity of these UV photons in
-the $\sim$1800-3800~${\rm \AA}$ wavelength range. There are steep drops in intensity
-around 1900~${\rm \AA}$ and 3000~${\rm \AA}$. By integrating over wavelength, we
-determine that the intensity of photons which can break the H-C and C-C bonds are
-$I_{\rm H-C}$ = 9.23~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$ and $I_{\rm C-C}$ =
-7132.04~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$.
+the $\sim$1800-3800~${\rm \AA}$ wavelength range, reproduced from Feinberg et al. 1995. There
+are steep drops in intensity around 1900~${\rm \AA}$ and 3000~${\rm \AA}$. We tabulate
+this specific intensity and numerically integrate it over wavelength to determine that
+the intensity of photons which can break the H-C and C-C bonds are $I_{\rm H-C}$ =
+9.23~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$ (integrating between 1800~${\rm \AA}$ and
+2888~${\rm \AA}$) and $I_{\rm C-C}$ = 7132.04~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$
+(integrating between 1800~${\rm \AA}$ and 3445~${\rm \AA}$).
 
 Though \chandra~does not directly observe the bright Earth, the telescope boresight can scan
 across the Earth during maneuvers. Therefore, in order to determine the total UV fluence
@@ -254,7 +261,10 @@ The time resolution of the first two MSIDs in the archive is $\Delta{t} = 5$~min
 of \code{3TSCPOS} is 32.8~seconds, so the time resolution of the calculation is limited to 5-minute intervals.
 This likely results in a modest overestimate of the total length of time that the OBFs have been exposed to
 the bright Earth, since the Earth will be entering and exiting the field of view during some of these intervals,
-and will not be within it during the entire 5 minutes. We do not seek to quantify this overestimate further, since we are adopting a ``worst-case'' approach to this problem. The total time $\Delta{T}$ during which the ACIS OBFs are exposed to the bright Earth is then calculated by simply summing the time intervals which jointly satisfy these conditions:
+and will not be within it during the entire 5 minutes. We do not seek to quantify this overestimate further,
+since we are adopting a ``worst-case'' approach to this problem. The total time $\Delta{T}$ during which the ACIS
+OBFs are exposed to the bright Earth is then calculated by simply summing the time intervals which jointly satisfy
+these conditions:
 
 \begin{eqnarray}
 \Delta{T} &=& \displaystyle\sum_i~\Delta{t_i},~{\rm where}~(\phi_{E,i} \leq \theta_{E,i})~{\rm and}~(\code{3TSCPOS}_i > -25000) \\
@@ -281,44 +291,61 @@ H_{\rm C-C} &=& I_{\rm C-C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 3.38 \times 10^{1
 \end{eqnarray}
 
 \noindent
-where the number of photons which can break C-C bonds is much higher due to the steep increase in intensity of these photons at wavelengths longer than $\sim$3000~${\rm \AA}$ (Figure \ref{fig:bright_earth_intensity}). Since any photon than can break a C-C bond can also break a H-C bond, we may estimate the total fluence of bond-breaking photons as simply $H = H_{\rm C-C}$.
+where the number of photons which can break C-C bonds is much higher due to the steep increase in intensity of these photons
+at wavelengths longer than $\sim$3000~${\rm \AA}$ (Figure \ref{fig:bright_earth_intensity}).
 
-We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. It
-will be convenient to express this in terms of the surface mass density of C, since this is directly
-measureable from calibration studies. Assuming 100\% efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), and that the number of photons required to polymerize $N$ molecules is simply $N-1 \approx N$ (for large $N$), the surface mass density of $C$ that is in the form of polymerized material is then given by:
-
-\begin{equation}\label{eqn:pred_poly}
-\sigma_{\rm C} = HN_{\rm C}m_{\rm C}/N_A = 0.067N_{\rm C}~\upmu{\rm g~cm}^{-2}
-\end{equation}
-
-\noindent
-for $N_{\rm C} = 17$, $\sigma_{\rm C} = 1.14$~$\upmu$g~cm$^{-2}$, which is a small fraction of the mass density
-of the contaminant present on the OBFs (Figure \ref{fig:surface_mass_density}).
+We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. Assuming 100\%
+efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), and that the number of photons required
+to polymerize $N$ molecules is simply $N-1 \approx N$ (for large $N$), the areal density of C that is in the form of
+polymerized material is then given by $N_{\rm C} = H_{\rm C-C}n_{\rm C}$, where $n_{\rm C}$ is the number of C atoms per
+molecule. For $n_{\rm C} = 17$, $N_{\rm C} = 5.75 \times 10^{16}$~cm$^{-2}$, which is a small fraction of the areal density
+of the contaminant present on the OBFs (Figure \ref{fig:areal_density}).
 
 \subsection{UV Flux from Stars}
 
-The next source of UV flux we will consider is that from bright stars. We first examined O stars which have tabulated fluxes in the International Ultraviolet Explorer (IUE) data archive\footnote{\url{https://archive.stsci.edu/iue/}} with apparent magnitudes of 6 or less which have also been observed by \chandra. We also chose to examine the UV flux from other stars which were observed by \chandra~by filtering on the ``Stars and WD'' Science Category of the \chandra~Data Archive, and which also have tabulated spectra in the IUE archive. In both cases, we only examined sources which fell witin 1' of the aimpoint for that observation. The list of stars that were examined, their UV fluxes, and the \chandra~exposure times are given in Table \ref{tab:star_fluxes}. The most significant UV fluences in this sample are from the stars of the Trapezium, which has been observed by \chandra~for $\sim$1~Ms.
+The next source of UV flux we will consider is that from bright stars. We first examined O stars which have tabulated
+fluxes in the International Ultraviolet Explorer (IUE) data archive\footnote{\url{https://archive.stsci.edu/iue/}} with
+apparent magnitudes of 6 or less which have also been observed by \chandra. We also chose to examine the UV flux from
+other stars which were observed by \chandra~by filtering on the ``Stars and WD'' Science Category of the \chandra~Data
+Archive, and which also have tabulated spectra in the IUE archive. In both cases, we only examined sources which fell
+witin 1' of the aimpoint for that observation, and were not observed with the HETG in, because the transmissivity of
+the HETG to UV photons is very low. The transmissivity of the LETG to UV photons is $\sim$50\%, so observations with
+the LETG in were weighted accordingly. The list of stars that were examined, their UV fluxes, and the \chandra~exposure
+times are given in Table \ref{tab:star_fluxes}. The most significant UV fluences in this sample are from the stars of
+the Trapezium Cluster, which has been observed by \chandra~for $\sim$1~Ms.
 
 \input{star_fluxes.tex}
 
-In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV flux is spread out over an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of 32$\times$32 pixels, or $\sim$248 square arcseconds. For each source, we use the flux of UV shortward of 3445~${\rm \AA}$ (the energy required to break C-C bonds), down to $\sim$1150~${\rm \AA}$, the lower-wavelength limit of IUE.
+In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV
+flux is spread out over an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of
+32$\times$32 pixels, or $\sim$248 square arcseconds. For each source, we integrate over the flux of UV shortward of
+3445~${\rm \AA}$ (the energy required to break C-C bonds), down to $\sim$1150~${\rm \AA}$, the lower-wavelength limit
+of IUE.
 
-Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total fluence of $H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the surface mass density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using Equation \ref{eqn:pred_poly}, we find $\sigma_{\rm C} = 3.10$~$\upmu$g~cm$^{-2}$, slightly higher than the predicted amount resulting from the bright Earth, but still far smaller than the actual surface mass density of the contaminant.
+Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total
+fluence of $H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the areal
+density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using the same formalism
+as above, we find $N_{\rm C} = 1.55 \times 10^{17}$~cm$^{-2}$, slightly higher than the predicted amount resulting from
+the bright Earth, but still far smaller than the actual areal density of the contaminant.
 
 \subsection{UV Flux from Solar System Objects}
 
+Lastly
 \section{Summary}
 
 We have presented a series of calculations of the estimated UV fluence which has impinged on the ACIS OBFs
-over the lifetime of the mission. We have determined that there has not been a sufficient amount of UV fluence
-to polymerize a significant amount of the contaminant. The following limitations of our study must be bore in mind:
+over the lifetime of the mission. We have determined that there has not been a sufficient UV fluence to polymerize
+a significant amount of the contaminant. The following limitations of our study must be kept in mind:
 
 \begin{itemize}
-\item Throughout this memo, we assumed that sufficiently energetic UV photons polymerize contaminant with 100\% efficiency, which is not likely to be the case.
-\item We have not considered other sources of UV flux, such as the cosmic UV background or that of diffuse sources which have been observed by \chandra.
+\item Throughout this memo, we assumed that sufficiently energetic UV photons polymerize contaminant with 100\% efficiency,
+which is not likely to be the case.
+\item We have not considered other sources of UV flux, such as the cosmic UV background or that of diffuse sources which
+have been observed by \chandra.
 \item We have assumed that the HRMA is 100\% reflective to UV photons.
 \end{itemize}
 
-We are confident that relaxing some of these assumptions and adopting more detailed calculations will not change our conclusions, since most of these assumptions result in an {\it overestimate} of the polymerization of the contaminant.
+We are confident that relaxing some of these assumptions and adopting more detailed calculations will not change our
+conclusions, since most of these assumptions result in an {\it overestimate} of the polymerization of the contaminant.
 
 \end{document}
