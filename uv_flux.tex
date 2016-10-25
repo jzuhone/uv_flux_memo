@@ -178,16 +178,17 @@ density of the contaminant as a function of time over the life of the mission so
 One factor which would determine the likelihood of a successful bakeout is the volatility
 of the contaminant, which is unknown since we do not know its molecular structure. If the
 volatility of the contaminant is low, it will be much more difficult to bake it off. One
-extreme possibility for a low volatility is if the contaminant is significantly polymerized.
+extreme possibility for a low volatility case is if the contaminant is significantly polymerized.
 After the first Hubble Space Telescope (HST) servicing mission in 1999, a layer of polymerized
-contaminant was discovered on the pick-off mirror. It was subsequently determined that
-the polymerization of the material occurred due to ultraviolet (UV) photons breaking molecular
-bonds. The primary source of these UV photons was from the Sun, reflected from the bright Earth.
+contaminant was discovered on the pick-off mirror of the WFPC-I camera. It was subsequently
+determined that the polymerization of the material occurred due to ultraviolet (UV) photons
+breaking molecular bonds. The primary source of these UV photons was from the Sun, reflected
+from the bright Earth.
 
 This implies that the contaminant that has built up on the OBFs may have been similarly
 polymerized by UV photons. In this memo, we perform an analysis of the various likely
 sources of UV flux which have impinged on the OBFs over the lifetime of the mission,
-to determine there has been a fluence of UV photons with sufficient energy to polymerize
+to determine if there has been a fluence of UV photons with sufficient energy to polymerize
 a significant amount of the contaminant, which could significantly degrade the efficiency
 of a potential bakeout of the ACIS OBFs.
 
@@ -221,19 +222,19 @@ correspond to photon wavelengths of $\lambda_{\rm H-C}$ = 2888~${\rm \AA}$ and $
 = 3445~${\rm \AA}$.
 
 \subsection{UV Flux from the Bright Earth}
-
-Our first source of UV flux that we consider is that which is from the Sun, backscattered
-from the Earth's atmosphere. Figure \ref{fig:bright_earth_intensity} shows the specific
-intensity of these UV photons in the $\sim$1800-3800~${\rm \AA}$ wavelength range. There
-are steep drops in intensity around 1900~${\rm \AA}$ and 3000~${\rm \AA}$. By integrating
-over wavelength, we determine that the intensity of photons which can break the H-C and C-C
-bonds are $I_{\rm H-C}$ = 9.23~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$ and $I_{\rm C-C}$ =
+We consider first the solar UV flux, scattered from the Earth's atmosphere. Figure
+\ref{fig:bright_earth_intensity} shows the specific intensity of these UV photons in
+the $\sim$1800-3800~${\rm \AA}$ wavelength range. There are steep drops in intensity
+around 1900~${\rm \AA}$ and 3000~${\rm \AA}$. By integrating over wavelength, we
+determine that the intensity of photons which can break the H-C and C-C bonds are
+$I_{\rm H-C}$ = 9.23~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$ and $I_{\rm C-C}$ =
 7132.04~photons~s$^{-1}$~cm$^{-2}$~arcsec$^{-2}$.
 
-Though \chandra~does not directly observe the bright Earth, the Earth can be scanned during
-maneuvers. Therefore, in order to determine the total UV fluence reflected from the bright
-arth which impinged upon the OBFs, it is necessary to determine the total time accumulated over
-the lifetime of the mission when the following two conditions are simultaneously satisfied:
+Though \chandra~does not directly observe the bright Earth, the telescope boresight can scan
+across the Earth during maneuvers. Therefore, in order to determine the total UV fluence
+reflected from the bright Earth which impinged upon the OBFs, it is necessary to determine
+the total time accumulated over the lifetime of the mission when the following two conditions
+are simultaneously satisfied:
 
 \begin{enumerate}
 \item The Earth is in the HRMA field of view
@@ -241,7 +242,7 @@ the lifetime of the mission when the following two conditions are simultaneously
 \end{enumerate}
 
 We assume that condition 1 is satisfied when the angular radius of the Earth is less than the
-angular distance between the Earth and the aimpoint. This was determined by querying
+angular distance between the Earth center and the aimpoint. This was determined by querying
 the \code{Ska} engineering archive for the MSIDs \code{Dist\_SatEarth} and \code{Point\_EarthCentAng},
 corresponding to the distance between the Earth's center and \chandra~($D_E$) and the angle $\phi_E$ between
 the Earth and the aimpoint, respectively. The angular radius of the Earth $\theta_E$ is determined
@@ -300,7 +301,7 @@ The next source of UV flux we will consider is that from bright stars. We first 
 
 \input{star_fluxes.tex}
 
-In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV flux is spread out over an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of 32$\times$32 pixels, or 15.74 square arcseconds. For each source, we use the flux of UV shortward of 3445~${\rm \AA}$ (the energy required to break C-C bonds), down to $\sim$1150~${\rm \AA}$, the lower-wavelength limit of IUE.
+In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV flux is spread out over an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of 32$\times$32 pixels, or $\sim$248 square arcseconds. For each source, we use the flux of UV shortward of 3445~${\rm \AA}$ (the energy required to break C-C bonds), down to $\sim$1150~${\rm \AA}$, the lower-wavelength limit of IUE.
 
 Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total fluence of $H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the surface mass density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using Equation \ref{eqn:pred_poly}, we find $\sigma_{\rm C} = 3.10$~$\upmu$g~cm$^{-2}$, slightly higher than the predicted amount resulting from the bright Earth, but still far smaller than the actual surface mass density of the contaminant.
 
