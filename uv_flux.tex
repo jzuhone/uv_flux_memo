@@ -392,15 +392,23 @@ Earth-Venus distance. We use these celestial coordinates as input to the CIAO to
 \code{dmcoords}\footnote{\url{http://cxc.harvard.edu/ciao/ahelp/dmcoords.html}}, together with the aspect solution,
 to compute the \code{CHIPX}, \code{CHIPY}, and \code{CHIP\_ID} for each time interval to determine the position of
 the center of Venus on the ACIS I-array as a function of time. The angular size of Venus on the I-array as a function
-of time is determined via the Earth-Venus distance and the radius of Venus. Figure \ref{fig:example_venus_obs} shows
-an example track of the Venus position and size across the I-array for OBSID .
+of time is determined via the Earth-Venus distance and the radius of Venus. Figure \ref{fig:venus_track} shows
+an example track of the Venus position and size across the I-array for OBSID 9753.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{venus_track.eps}
+\caption{Example track of Venus across the I-array for OBSID 9753, clearly showing the dithering patter superimposed
+on its proper motion across the sky. Green circles represent the angular size of Venus.\label{fig:venus_track}}
+\end{center}
+\end{figure}
 
 We use the same measure of the UV intensity from Venus from Section \ref{sec:ssobj} to compute the fluence on the OBFs
 for each observation, which are added in total to provide a total fluence and shown in Figure \ref{fig:total_venus_fluence},
 both in terms of the number of potential bond-breaking photons per unit area and the corresponding percentage of the areal
 density of C atoms in the contaminant. We see that the UV fluence from Venus is concentrated mostly on I2 and I1, with
 smaller amounts on I0 and I3. The total UV fluence from these observations is small everywhere, reaching only up to
-$\sim$0.4\% of the areal density of the contaminant at its highest level.
+$\sim$0.5\% of the areal density of the contaminant at its highest level.
 
 \begin{figure}
 \begin{center}
