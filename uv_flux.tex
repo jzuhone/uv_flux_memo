@@ -295,7 +295,9 @@ Figure \ref{fig:time_accum} shows the accumulation of this time over the duratio
 \end{center}
 \end{figure}
 
-As mentioned above, we assume that the UV photons are reflected from the HRMA onto the focal plane with 100\% efficiency, so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delta{S}$ of the ACIS focal plane is 0.0205"/$\mu$m. The accumulated fluences of photons which can break H-C and C-C bonds are then, respectively:
+As mentioned above, we assume that the UV photons are reflected from the HRMA onto the focal plane with 100\% efficiency,
+so the effective area is $A_{\rm eff} = 1145$~cm$^2$. The ``plate scale'' $\Delta{S}$ of the ACIS focal plane is 0.0205"/$\mu$m.
+The accumulated fluences of photons which can break H-C and C-C bonds are then, respectively:
 
 \begin{eqnarray}
 H_{\rm H-C} &=& I_{\rm H-C}A_{\rm eff}(\Delta{S})^2\Delta{T} = 4.06 \times 10^{12}~{\rm photons~cm^{-2}} \\
@@ -336,40 +338,76 @@ of IUE.
 
 Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total
 fluence of $H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the areal
-density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using the same formalism as above, we find $N_{\rm C} = 2.19 \times 10^{17}$~cm$^{-2}$, $\sim$3\% of the areal density of the contaminant present at the center of OBFs, which is slightly higher than the predicted amount resulting from the bright Earth.
+density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using the same formalism
+as above, we find $N_{\rm C} = 2.19 \times 10^{17}$~cm$^{-2}$, $\sim$3\% of the areal density of the contaminant present
+at the center of OBFs, which is slightly higher than the predicted amount resulting from the bright Earth.
 
 \subsection{UV Fluence from Solar System Objects}\label{sec:ssobj}
 
 The last source of UV flux we will consider is that from solar system objects. {\it Chandra} has observed the
-Moon, Venus, Mars, and Jupiter, all of which are at least potentially bright in the UV. Figure \ref{fig:ss_obj_intensity} shows the intensity of solar UV photons reflected from the Sun for these objects, with that from the Earth plotted for comparison (provided by Randy Gladstone of SwRI via Peter Ford of MIT).
+Moon, Venus, Mars, and Jupiter, all of which are at least potentially bright in the UV. Figure \ref{fig:ss_obj_intensity}
+shows the intensity of solar UV photons reflected from the Sun for these objects, with that from the Earth plotted for
+comparison (provided by Randy Gladstone of SwRI via Peter Ford of MIT).
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{ss_obj_intensity.eps}
-\caption{Specific intensity of solar UV photons backscattered from solar system objects which have been observed by {\it Chandra}, along with the Earth. Dashed vertical lines show the wavelengths of photon energies that can break H-C and C-C bonds.\label{fig:ss_obj_intensity}}
+\caption{Specific intensity of solar UV photons backscattered from solar system objects which have been observed by
+{\it Chandra}, along with the Earth. Dashed vertical lines show the wavelengths of photon energies that can break
+-C and C-C bonds.\label{fig:ss_obj_intensity}}
 \end{center}
 \end{figure}
 
-For this calculation, we assume that each solar system object was observed at the same aimpoint and that the object did not move in the field of view, again consistent with our ``worst-case'' approach. We further assume that each object was always observed at full phase, relevant for Venus and the Moon. The total exposure of these different solar system objects by \chandra~and their UV fluxes are tabulated in Table \ref{tab:ssobj}.
+For this calculation, we assume that each solar system object was observed at the same aimpoint and that the object
+did not move in the field of view, again consistent with our ``worst-case'' approach. We further assume that each
+object was always observed at full phase, relevant for Venus and the Moon. The total exposure of these different
+solar system objects by \chandra~and their UV fluxes are tabulated in Table \ref{tab:ss_fluxes}.
 
-Using the same procedure as Sections \ref{sec:earth} and \ref{sec:stars}, we find the total UV fluence per unit area from all solar system objects is $N_{\rm C} = 2.25 \times 10^{18}$~cm$^{-2}$, $\sim$30\% of the areal density of the contaminant present at the center of OBFs. We find that \% of this fluence is from the $\sim$250~ks of Venus observations, which is expected given the relative brightness of Venus in the UV shown in Figure \ref{fig:ss_obj_intensity} and the amount of time that it has been observed.
+\input{ss_fluxes.tex}
 
-This fluence is a significant fraction of the areal density of the contaminant, which implies that it should be investigated further. To obtain a more accurate estimate of the UV fluence, it will be necessary to relax one or more of our assumptions. The easiest and most relevant assumptions to relax are that Venus was observed at the same aimpoint for every observation and that it did not move in the field of view. Therefore, we will need to calculate the fluence of UV photons as a function of position on the ACIS OBFs, which we detail in the next section.
+Using the same procedure as Sections \ref{sec:earth} and \ref{sec:stars}, we find the total UV fluence per unit area
+from all solar system objects is $N_{\rm C} = 3.25 \times 10^{18}$~cm$^{-2}$, $\sim$44\% of the areal density of the
+contaminant present at the center of OBFs. We find that $\sim$87\% of this fluence is from the $\sim$250~ks of Venus observations,
+which is expected given the relative brightness of Venus in the UV shown in Figure \ref{fig:ss_obj_intensity} and the
+amount of time that it has been observed.
+
+This fluence is a significant fraction of the areal density of the contaminant, which implies that it should be
+investigated further. To obtain a more accurate estimate of the UV fluence, it will be necessary to relax one or more of
+our assumptions. The easiest and most relevant assumptions to relax are that Venus was observed at the same aimpoint for
+every observation and that it did not move in the field of view. Therefore, we will need to calculate the fluence of UV
+photons from Venus as a function of position on the ACIS OBFs, which we detail in the next section.
 
 \subsubsection{Detailed Calculation of the UV Fluence from Venus}\label{sec:venus}
 
-We first identify all of the observations of Venus by ACIS in the Obscat, which are shown in Table \ref{tab:venus_obs}. In our calculations, we will include the contribution to the UV fluence from all of these
-observations, excepting the two short ACIS-S observations with LETG, which reduces the UV transmission by $\sim$50\%. The remaining observations are all with ACIS-I and no gratings, and are roughly 250~ks of exposure in total.
+We first identify all of the observations of Venus by ACIS in the Obscat, which are shown in Table \ref{tab:venus_obs}.
+In our calculations, we will include the contribution to the UV fluence from all of these observations, excepting the
+two short ACIS-S observations with LETG (OBSIDs 2411 and 2414), which reduces the UV transmission by $\sim$50\%. The
+remaining observations are all with ACIS-I and no gratings, and are roughly 250~ks of exposure in total.
 
-We use the aspect solution from each observation to obtain a set of time intervals over which to compute the fluence. These time intervals are fed into AstroPy's \code{get\_body}\footnote{\url{http://docs.astropy.org/en/stable/api/astropy.coordinates.get_body.html}} function which obtains the ephemeris for Venus at these times, including the right ascension, declination, and Earth-Venus distance. We use these celestial coordinates as input to the CIAO tool \code{dmcoords}\footnote{\url{http://cxc.harvard.edu/ciao/ahelp/dmcoords.html}}, together with the aspect solution, to compute the \code{CHIPX}, \code{CHIPY}, and \code{CHIP\_ID} for each time interval to determine the position of the center of Venus on the ACIS I-array as a function of time. The angular size of Venus on the I-array as a function of time is determined via the Earth-Venus distance and the radius of Venus. Figure \ref{fig:example_venus_obs} shows an example track of the Venus position and size across the I-array for Obsid .
+We use the aspect solution from each observation to obtain a set of time intervals over which to compute the fluence.
+These time intervals are fed into AstroPy's
+\code{get\_body}\footnote{\url{http://docs.astropy.org/en/stable/api/astropy.coordinates.get_body.html}}
+function which obtains the ephemeris for Venus at these times, including the right ascension, declination, and
+Earth-Venus distance. We use these celestial coordinates as input to the CIAO tool
+\code{dmcoords}\footnote{\url{http://cxc.harvard.edu/ciao/ahelp/dmcoords.html}}, together with the aspect solution,
+to compute the \code{CHIPX}, \code{CHIPY}, and \code{CHIP\_ID} for each time interval to determine the position of
+the center of Venus on the ACIS I-array as a function of time. The angular size of Venus on the I-array as a function
+of time is determined via the Earth-Venus distance and the radius of Venus. Figure \ref{fig:example_venus_obs} shows
+an example track of the Venus position and size across the I-array for OBSID .
 
-We use the same measure of the UV intensity from Venus from Section \ref{sec:ssobj} to compute the fluence on the OBFs for each observation, which are added in total to provide a total fluence and shown in Figure \ref{fig:total_venus_fluence}, both in terms of the number of potential bond-breaking photons per unit area and the corresponding percentage of the areal density of C atoms in the contaminant. We see that the UV fluence from Venus is concentrated mostly on I2 and I1, with smaller amounts on I0 and I3. The total UV fluence from these observations is small everywhere, reaching only up to $\sim$0.4\% of the areal density of the contaminant at its highest level.
+We use the same measure of the UV intensity from Venus from Section \ref{sec:ssobj} to compute the fluence on the OBFs
+for each observation, which are added in total to provide a total fluence and shown in Figure \ref{fig:total_venus_fluence},
+both in terms of the number of potential bond-breaking photons per unit area and the corresponding percentage of the areal
+density of C atoms in the contaminant. We see that the UV fluence from Venus is concentrated mostly on I2 and I1, with
+smaller amounts on I0 and I3. The total UV fluence from these observations is small everywhere, reaching only up to
+$\sim$0.4\% of the areal density of the contaminant at its highest level.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.45\textwidth]{venus_all_fluence.eps}
 \includegraphics[width=0.45\textwidth]{venus_all_fluence_percent.eps}
-\caption{UV fluence of Venus from all ACIS-I observations in Table \ref{tab:venus_obs}. Left: UV fluence per unit area. Right: The total UV fluence expressed as a percentage of the areal density of C atoms.\label{fig:total_venus_fluence}}
+\caption{UV fluence of Venus from all ACIS-I observations in Table \ref{tab:venus_obs}. Left: UV fluence per unit area.
+Right: The total UV fluence expressed as a percentage of the areal density of C atoms.\label{fig:total_venus_fluence}}
 \end{center}
 \end{figure}
 
@@ -379,13 +417,19 @@ We have presented a series of calculations of the estimated UV fluence which has
 over the lifetime of the mission. The following limitations of our study must be kept in mind:
 
 \begin{itemize}
-\item Throughout this memo, we assumed that sufficiently energetic UV photons polymerize contaminant with 100\% efficiency, which is not likely to be the case.
-\item We have not considered other sources of UV fluence, such as the cosmic UV background or that of diffuse sources which have been observed by \chandra. Based on preliminary calculations, we do not believe these to be significant sources of UV fluence.
+\item Throughout this memo, we assumed that sufficiently energetic UV photons polymerize contaminant with 100\%
+efficiency, which is not likely to be the case.
+\item We have not considered other sources of UV fluence, such as the cosmic UV background or that of diffuse
+sources which have been observed by \chandra. Based on preliminary calculations, we do not believe these to be
+significant sources of UV fluence.
 \item We have assumed that the HRMA is 100\% reflective to UV photons.
 \item We have assumed (with the exception of the Venus observations) that all of the UV fluence is observed at the
 same aimpoint.
 \end{itemize}
 
-We are confident that relaxing some of these assumptions and adopting more detailed calculations will not change our conclusions, since most of these assumptions result in an {\it overestimate} of the polymerization of the contaminant. We conclude that there not has been sufficient UV fluence upon the ACIS OBFs to significantly polymerize the contaminant over the lifetime of the mission.
+We are confident that relaxing some of these assumptions and adopting more detailed calculations will not change
+our conclusions, since most of these assumptions result in an {\it overestimate} of the polymerization of the
+contaminant. We conclude that there not has been sufficient UV fluence upon the ACIS OBFs to significantly
+polymerize the contaminant over the lifetime of the mission.
 
 \end{document}
