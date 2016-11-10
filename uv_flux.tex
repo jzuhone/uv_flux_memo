@@ -209,9 +209,10 @@ assumptions throughout this memo, but in general we assume:
 \end{enumerate}
 
 Neither of these assumptions are strictly true, but adopting them provides an upper limit on
-the UV fluence that could have impinged upon the ACIS OBFs. In Section \ref{sec:ssobj}, we
-will relax assumption 2 to provide a more realistic estimate of the UV fluence from observations
-of Venus.
+the UV fluence that could have impinged upon the ACIS OBFs. In particular, assumption 2 is very
+conservative, since observations of sources may be made with either ACIS-I or ACIS-S, and not
+always at the same aimpoint on either detector. In Section \ref{sec:venus}, we will relax this
+assumption to provide a more realistic estimate of the UV fluence from observations of Venus.
 
 \begin{figure}
 \begin{center}
@@ -354,7 +355,7 @@ comparison (provided by Randy Gladstone of SwRI via Peter Ford of MIT).
 \includegraphics[width=0.7\textwidth]{ss_obj_intensity.eps}
 \caption{Specific intensity of solar UV photons backscattered from solar system objects which have been observed by
 {\it Chandra}, along with the Earth. Dashed vertical lines show the wavelengths of photon energies that can break
--C and C-C bonds.\label{fig:ss_obj_intensity}}
+H-C and C-C bonds.\label{fig:ss_obj_intensity}}
 \end{center}
 \end{figure}
 
@@ -434,12 +435,14 @@ sources which have been observed by \chandra. Based on preliminary calculations,
 significant sources of UV fluence.
 \item We have assumed that the HRMA is 100\% reflective to UV photons.
 \item We have assumed (with the exception of the Venus observations) that all of the UV fluence is observed at the
-same aimpoint.
+same aimpoint. In reality, most of the observations have been taken with the aimpoint near the center of the I-array and
+on the S3 chips. There should be even less UV fluence on other areas of ACIS.
 \end{itemize}
 
 We are confident that relaxing some of these assumptions and adopting more detailed calculations will not change
 our conclusions, since most of these assumptions result in an {\it overestimate} of the polymerization of the
-contaminant. We conclude that there not has been sufficient UV fluence upon the ACIS OBFs to significantly
-polymerize the contaminant over the lifetime of the mission.
+contaminant. Though it is inevitable that some of the contaminant on the ACIS OBFs must be in polymerized form,
+we conclude from the calculations presented in this memo that the amount of contaminant that is polymerized is at most
+on the few percent level.
 
 \end{document}
