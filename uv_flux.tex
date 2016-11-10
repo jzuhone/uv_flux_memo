@@ -379,10 +379,12 @@ photons from Venus as a function of position on the ACIS OBFs, which we detail i
 
 \subsubsection{Detailed Calculation of the UV Fluence from Venus}\label{sec:venus}
 
-We first identify all of the observations of Venus by ACIS in the Obscat, which are shown in Table \ref{tab:venus_obs}.
+We first identify all of the observations of Venus by ACIS in the Obscat, which are shown in Table \ref{tab:venus_obsids}.
 In our calculations, we will include the contribution to the UV fluence from all of these observations, excepting the
 two short ACIS-S observations with LETG (OBSIDs 2411 and 2414), which reduces the UV transmission by $\sim$50\%. The
 remaining observations are all with ACIS-I and no gratings, and are roughly 250~ks of exposure in total.
+
+\input{venus_obsids.tex}
 
 We use the aspect solution from each observation to obtain a set of time intervals over which to compute the fluence.
 These time intervals are fed into AstroPy's
@@ -398,7 +400,7 @@ an example track of the Venus position and size across the I-array for OBSID 975
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{venus_track.eps}
-\caption{Example track of Venus across the I-array for OBSID 9753, clearly showing the dithering patter superimposed
+\caption{Example track of Venus across the I-array for OBSID 9753, clearly showing the dithering pattern superimposed
 on its proper motion across the sky. Green circles represent the angular size of Venus.\label{fig:venus_track}}
 \end{center}
 \end{figure}
@@ -414,7 +416,7 @@ $\sim$0.5\% of the areal density of the contaminant at its highest level.
 \begin{center}
 \includegraphics[width=0.45\textwidth]{venus_all_fluence.eps}
 \includegraphics[width=0.45\textwidth]{venus_all_fluence_percent.eps}
-\caption{UV fluence of Venus from all ACIS-I observations in Table \ref{tab:venus_obs}. Left: UV fluence per unit area.
+\caption{UV fluence of Venus from all ACIS-I observations in Table \ref{tab:venus_obsids}. Left: UV fluence per unit area.
 Right: The total UV fluence expressed as a percentage of the areal density of C atoms.\label{fig:total_venus_fluence}}
 \end{center}
 \end{figure}
