@@ -196,7 +196,7 @@ to determine if there has been a fluence of UV photons with sufficient energy to
 a significant amount of the contaminant, which could significantly degrade the efficiency
 of a potential bakeout of the ACIS OBFs.
 
-\section{Estimation of the Effects of UV Flux}
+\section{Estimation of the Effects of UV Fluence}
 
 In this section, we will present a series of calculations of the estimated UV fluence
 ``observed'' by ACIS from various sources. Our goal is to calculate a ``worst-case'' UV
@@ -334,20 +334,20 @@ the Trapezium Cluster, which has been observed by \chandra~for $\sim$1~Ms.
 \input{star_fluxes.tex}
 
 In keeping with our ``worst case'' approach, we assume that each source is observed at the aimpoint and that the UV
-flux is spread out over an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of
-32$\times$32 pixels, or $\sim$248 square arcseconds. For each source, we integrate over the flux of UV shortward of
+fluence is spread out over an area on the OBFs corresponding to the outline of the standard \chandra~dither pattern of
+32$\times$32 pixels, or $\sim$248 square arcseconds. For each source, we integrate over the UV flux shortward of
 3445~${\rm \AA}$ (the energy required to break C-C bonds), down to $\sim$1150~${\rm \AA}$, the lower-wavelength limit
 of IUE.
 
 Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total
-fluence of $H = 9.14 \times 10^{15}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the areal
+fluence of $H = 1.09 \times 10^{16}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the areal
 density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using the same formalism
-as above, we find $N_{\rm C} = 2.19 \times 10^{17}$~cm$^{-2}$, $\sim$3\% of the areal density of the contaminant present
+as above, we find $N_{\rm C} = 2.61 \times 10^{17}$~cm$^{-2}$, $\sim$4\% of the areal density of the contaminant present
 at the center of OBFs, which is slightly higher than the predicted amount resulting from the bright Earth.
 
 \subsection{UV Fluence from Solar System Objects}\label{sec:ssobj}
 
-The last source of UV flux we will consider is that from solar system objects. {\it Chandra} has observed the
+The last source of UV fluence we will consider is that from solar system objects. {\it Chandra} has observed the
 Moon, Venus, Mars, and Jupiter, all of which are at least potentially bright in the UV. Figure \ref{fig:ss_obj_intensity}
 shows the intensity of solar UV photons reflected from the Sun for these objects, with that from the Earth plotted for
 comparison (provided by Randy Gladstone of SwRI via Peter Ford of MIT).
@@ -364,7 +364,7 @@ H-C and C-C bonds.\label{fig:ss_obj_intensity}}
 For this calculation, we assume that each solar system object was observed at the same aimpoint and that the object
 did not move in the field of view, again consistent with our ``worst-case'' approach. We further assume that each
 object was always observed at full phase, relevant for Venus and the Moon. The total exposure of these different
-solar system objects by \chandra~and their UV fluxes are tabulated in Table \ref{tab:ss_fluxes}.
+solar system objects by \chandra~and their UV intensities are tabulated in Table \ref{tab:ss_fluxes}.
 
 \input{ss_fluxes.tex}
 
