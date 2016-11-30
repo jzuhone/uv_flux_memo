@@ -143,11 +143,10 @@ moveto 0.9 setgray (DRAFT) show grestore}def end}}
 
 A contamination layer has built up on the ACIS Optical Blocking Filters over the
 lifetime of the \chandra~mission. A bakeout of the ACIS instrument could potentially
-drive the contaminant off the filters, but this will be extremely difficult if the
-contaminant has been significantly polymerized by exposure to ultraviolet light.
-This memo is presented to support the conclusion that the filters have been exposed
-to insufficient ultraviolet light over the duration of the mission to significantly
-polymerize the contaminant.
+drive the contaminant off the filters, but this might be difficult if the contaminant
+has been significantly polymerized by exposure to ultraviolet light. This memo is
+presented to support the conclusion that the filters have been exposed to insufficient
+ultraviolet light over the duration of the mission to significantly polymerize the contaminant.
 
 %%% If you wish to redefine the page headers and footers, do so here.
 \section{Introduction}
@@ -181,9 +180,9 @@ the edge, and the boxes are at the edge. Figure adapted from Plucinsky et al. 20
 One factor which would determine the likelihood of a successful bakeout is the volatility
 of the contaminant, which is unknown since we do not know its molecular structure. If the
 volatility of the contaminant is low, it will be much more difficult to bake it off. One
-extreme possibility for a low volatility case is if the contaminant is significantly polymerized.
+possibility for a low volatility case is if the contaminant is significantly polymerized.
 After the first Hubble Space Telescope (HST) servicing mission in 1999, a layer of polymerized
-contaminant was discovered on the pick-off mirror of the WFPC-I camera. It was subsequently
+contaminant was discovered on the pick-off mirror of the WFPC1 camera. It was subsequently
 determined that the polymerization of the material occurred due to ultraviolet (UV) photons
 breaking molecular bonds of contaminant molecules, which subsequently combine to form longer
 polymer molecules. The primary source of these UV photons was from the Sun, reflected from
@@ -193,7 +192,7 @@ This implies that the contaminant that has built up on the OBFs may have been si
 polymerized by UV photons. In this memo, we perform an analysis of the various likely
 sources of UV flux which have impinged on the OBFs over the lifetime of the mission,
 to determine if there has been a fluence of UV photons with sufficient energy to polymerize
-a significant amount of the contaminant, which could significantly degrade the efficiency
+a significant amount of the contaminant, which could significantly degrade the efficacy
 of a potential bakeout of the ACIS OBFs.
 
 \section{Estimation of the Effects of UV Fluence}
@@ -313,7 +312,7 @@ at wavelengths longer than $\sim$3000~${\rm \AA}$ (Figure \ref{fig:bright_earth_
 
 We can now make a rough estimate of the amount of contaminant that could be polymerized by these photons. Assuming 100\%
 efficiency (e.g., that each UV photon which impinges upon the OBFs breaks a bond), and that the number of photons required
-to polymerize $N$ molecules is simply $N-1 \approx N$ (for large $N$), the areal density of C that is in the form of
+to polymerize $N$ molecules is simply $N-1 \approx N$ (for large $N$), the predicted areal density of C that is in the form of
 polymerized material is then given by $N_{\rm C} = H_{\rm C-C}n_{\rm C}$, where again $n_{\rm C}$ is the number of C atoms per
 molecule. Assuming $n_{\rm C} = 24$ for dioctyl phthalate, $N_{\rm C} = 8.11 \times 10^{16}$~cm$^{-2}$, which is $\sim$1\%
 of the areal density of the contaminant present at the center of OBFs (Figure \ref{fig:areal_density}).
@@ -340,10 +339,10 @@ fluence is spread out over an area on the OBFs corresponding to the outline of t
 of IUE.
 
 Summing the contributions from all of our sources together, and using Equation \ref{eqn:fluence} we find a total
-fluence of $H = 1.09 \times 10^{16}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the areal
-density of C corresponding to the amount of polymerized contaminant, assuming 100\% efficiency. Using the same formalism
-as above, we find $N_{\rm C} = 2.61 \times 10^{17}$~cm$^{-2}$, $\sim$4\% of the areal density of the contaminant present
-at the center of OBFs, which is slightly higher than the predicted amount resulting from the bright Earth.
+fluence of $H = 1.09 \times 10^{16}$~photons~cm$^{-2}$. As for the previous calcuation, we can determine the predicted
+areal density of polymerized contaminant, assuming 100\% efficiency. Using the same formalism as above, we find
+$N_{\rm C} = 2.61 \times 10^{17}$~cm$^{-2}$, $\sim$4\% of the areal density of the contaminant present at the center of
+the OBFs, which is slightly higher than the predicted amount resulting from the bright Earth.
 
 \subsection{UV Fluence from Solar System Objects}\label{sec:ssobj}
 
@@ -368,17 +367,16 @@ solar system objects by \chandra~and their UV intensities are tabulated in Table
 
 \input{ss_fluxes.tex}
 
-Using the same procedure as Sections \ref{sec:earth} and \ref{sec:stars}, we find the total UV fluence per unit area
-from all solar system objects is $N_{\rm C} = 3.25 \times 10^{18}$~cm$^{-2}$, $\sim$44\% of the areal density of the
-contaminant present at the center of OBFs. We find that $\sim$87\% of this fluence is from the $\sim$250~ks of Venus observations,
-which is expected given the relative brightness of Venus in the UV shown in Figure \ref{fig:ss_obj_intensity} and the
-amount of time that it has been observed.
+Using the same procedure as Sections \ref{sec:earth} and \ref{sec:stars}, we find the total predicted areal density
+the form of polymerized contaminant resulting from the UV fluence from all solar system objects is $N_{\rm C} = 3.25 \times 10^{18}$~cm$^{-2}$, $\sim$44\% of the areal density of the contaminant present at the center of OBFs. We find that
+$\sim$87\% of this estimate is from the $\sim$250~ks of Venus observations, which is expected given the relative
+brightness of Venus in the UV shown in Figure \ref{fig:ss_obj_intensity} and the amount of time that it has been observed.
 
-This fluence is a significant fraction of the areal density of the contaminant, which implies that it should be
-investigated further. To obtain a more accurate estimate of the UV fluence, it will be necessary to relax one or more of
-our assumptions. The easiest and most relevant assumptions to relax are that Venus was observed at the same aimpoint for
-every observation and that it did not move in the field of view. Therefore, we will need to calculate the fluence of UV
-photons from Venus as a function of position on the ACIS OBFs, which we detail in the next section.
+This predicted areal density of polymerized contaminant is a significant fraction of the measured areal density, which implies
+that it should be investigated further. To obtain a more accurate estimate of the UV fluence, it will be necessary to
+relax one or more of our assumptions. The easiest and most relevant assumptions to relax are that Venus was observed at
+the same aimpoint for every observation and that it did not move in the field of view. Therefore, we will need to calculate
+the fluence of UV photons from Venus as a function of position on the ACIS OBFs, which we detail in the next section.
 
 \subsubsection{Detailed Calculation of the UV Fluence from Venus}\label{sec:venus}
 
@@ -409,32 +407,48 @@ on its proper motion across the sky. Green circles represent the angular size of
 \end{figure}
 
 We use the same measure of the UV intensity from Venus from Section \ref{sec:ssobj} to compute the fluence on the OBFs
-for each observation, which are added in total to provide a total fluence and shown in Figure \ref{fig:total_venus_fluence},
-both in terms of the number of potential bond-breaking photons per unit area and the corresponding percentage of the areal
-density of C atoms in the contaminant. We see that the UV fluence from Venus is concentrated mostly on I2 and I1, with
-smaller amounts on I0 and I3. The total UV fluence from these observations is small everywhere, reaching only up to
-$\sim$0.5\% of the areal density of the contaminant at its highest level.
+for each observation, which are added in total to provide a total predicted areal density of polymerized contaminant,
+shown in Figure \ref{fig:total_venus_fluence}. We see that the UV fluence from Venus is concentrated mostly on I2 and
+I1, with smaller amounts on I0 and I3. The predicted areal density of polymerized contaminant from these observations
+is small everywhere, reaching only up to $\sim$0.5\% of the measured areal density of the contaminant at its highest level.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.45\textwidth]{venus_all_fluence.eps}
 \includegraphics[width=0.45\textwidth]{venus_all_fluence_percent.eps}
-\caption{UV fluence of Venus from all ACIS-I observations in Table \ref{tab:venus_obsids}. Left: UV fluence per unit area.
-Right: The total UV fluence expressed as a percentage of the areal density of C atoms.\label{fig:total_venus_fluence}}
+\caption{Predicted amounts of polymerized contaminant from all ACIS-I observations of Venus in Table \ref{tab:venus_obsids}.
+Left: Predicted areal density of polymerized contaminant. Right: The predicted percentage of the contaminant that is
+polymerized.\label{fig:total_venus_fluence}}
 \end{center}
 \end{figure}
+
+\subsubsection{UV Fluence from the Io Plasma Torus}\label{sec:io_torus}
+
+We also briefly considered the fluence in the EUV band from the plasma torus surrounding Jupiter at the orbit of
+its moon Io. The Cassini spacecraft measured the EUV spectrum of the Io plasma torus in the year 2000. The EUV spectrum
+of the Io plasma torus in the wavelength range of 561-1181~$\rm{\AA}$ is shown in Figure 5 of Steffl et al. 2004.
+
+We can use this EUV spectrum to compute the UV fluence received from the Io plasma torus during the $\sim$350~ks that
+\chandra~observed Jupiter. All of the photons in the observed wavelength range are capable of polymerizing C-C and H-C
+bonds. Carrying out the same calculations as in the previous sections, we find that the predicted areal density of
+polymerized contaminant from observing the Io plasma torus is $N_{\rm C} = 3.67 \times 10^{12}$~cm$^{-2}$, many orders
+of magnitude smaller than the contributions from the other sources, so it can be safely ignored.
+
+\subsection{Fluence from the Local UV Background}\label{sec:uv_bkgnd}
+
+Finally, we consider the fluence accumulated over the lifetime of the mission from the local UV background.
 
 \section{Summary}
 
 We have presented a series of calculations of the estimated UV fluence which has impinged on the ACIS OBFs
-over the lifetime of the mission. The following limitations of our study must be kept in mind:
+over the lifetime of the mission from various sources, and the predicted areal density of polymerized contaminant
+that results. The following limitations of our study must be kept in mind:
 
 \begin{itemize}
 \item Throughout this memo, we assumed that sufficiently energetic UV photons polymerize contaminant with 100\%
 efficiency, which is not likely to be the case.
-\item We have not considered other sources of UV fluence, such as the cosmic UV background or that of diffuse
-sources which have been observed by \chandra. Based on preliminary calculations, we do not believe these to be
-significant sources of UV fluence.
+\item We have not considered other sources of UV fluence, such as diffuse sources which have been observed by
+\chandra. Based on preliminary calculations, we do not believe these to be significant sources of UV fluence.
 \item We have assumed that the HRMA is 100\% reflective to UV photons.
 \item We have assumed (with the exception of the Venus observations) that all of the UV fluence is observed at the
 same aimpoint. In reality, most of the observations have been taken with the aimpoint near the center of the I-array and
@@ -462,5 +476,9 @@ O'Dell, S.~L., Swartz, D.~A., Tice, N.~W., et al.\ 2015, Proceedings SPIE, 9601,
 \\
 \noindent
 Plucinsky, P.~P., Bogdan, A., Germain, G., \& Marshall, H.~L., Proceedings SPIE, 9905, 990544
+\\
+\\
+\noindent
+Steffl, A.~J., Stewart, A.~I.~F., \& Bagenal, F.\ 2004, Icarus, 172, 78
 
 \end{document}
